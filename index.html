@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Love Letter</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(180deg, #ffe6ea, #fff6f8);
+        overflow-x: hidden;
+        color: #333;
+    }
+    .hearts {
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        z-index: 0;
+        pointer-events: none;
+    }
+    .heart {
+        position: absolute;
+        color: #ff6b9f;
+        font-size: 24px;
+        animation: floatUp linear infinite;
+        opacity: 0.15;
+    }
+    @keyframes floatUp {
+        0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+        10% { opacity: 0.3; }
+        90% { opacity: 0.3; }
+        100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+    .card {
+        position: relative;
+        max-width: 700px;
+        margin: 50px auto;
+        background: white;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        z-index: 1;
+        animation: fadeSlide 1s ease forwards;
+        opacity: 0;
+    }
+    @keyframes fadeSlide {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    .meta {
+        text-align: center;
+        font-size: 0.95rem;
+        color: #777;
+    }
+    .letter {
+        margin-top: 20px;
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+    .signature {
+        margin-top: 30px;
+        text-align: right;
+        font-weight: bold;
+    }
+    .question {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+    .options {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+    .options label {
+        cursor: pointer;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    input[type="checkbox"] {
+        transform: scale(1.2);
+        accent-color: #ff6b9f;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="card">
+    <div class="title">To My Favorite Person</div>
+    <div class="meta">
+        Dear: <strong>Akshaya Anand</strong> &nbsp;|&nbsp; From: <strong>Anand</strong> &nbsp;|&nbsp; Date: August 15, 2025
+    </div>
+    <div class="letter">
+        Dear Akshaya Anand,<br><br>
+        I am writing this letter from the bottom of my heart 
+        and with lots and lots of love. 
+        You already know how much I love you,
+        but just remember that <h4>I LOVE YOU MORE THAN YOU KNOW</h4>
+        So through this letter I am asking you that...<br><br>
+        <h1>WILL YOU MARRY ME AND BE MY WIFE FOR THE REST OF OUR LIFE 
+        AND MAKE SO MANY HAPPY MEMORIES TOGETHER... ❤️</h1>
+    </div>
+    <div class="signature">
+        Forever Yours,<br>
+        Anand Akshaya
+    </div>
+
+    <div class="question">
+        Will you be mine forever? 💖
+    </div>
+    <div class="options">
+        <label><input type="checkbox" id="yesBox"> Yes</label>
+        <label><input type="checkbox" id="noBox"> No</label>
+    </div>
+</div>
+
+<script>
+    const heartsContainer = document.getElementById('hearts');
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.textContent = '❤';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (6 + Math.random() * 4) + 's';
+        heart.style.fontSize = (12 + Math.random() * 20) + 'px';
+        heartsContainer.appendChild(heart);
+        setTimeout(() => heart.remove(), 10000);
+    }
+    setInterval(createHeart, 400);
+
+    document.getElementById('yesBox').addEventListener('change', function() {
+        if (this.checked) {
+            document.getElementById('noBox').checked = false;
+            alert("Congrats bb you are married..!!!💖");
+        }
+    });
+    document.getElementById('noBox').addEventListener('change', function() {
+        if (this.checked) {
+            document.getElementById('yesBox').checked = false;
+            alert("Dispression aayii..😢 ");
+        }
+    });
+</script>
+
+</body>
+</html>
